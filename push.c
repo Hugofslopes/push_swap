@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dealoc_.c                                          :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 13:52:18 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/05 11:44:16 by hfilipe-         ###   ########.fr       */
+/*   Created: 2024/12/05 14:42:03 by hfilipe-          #+#    #+#             */
+/*   Updated: 2024/12/05 16:14:53 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	dealoc_(char **list)
+void push(t_l **a, t_l *an, t_l **b)
 {
-	size_t	i;
+	t_l	*curr;
+	t_l	*curra;
+	int	n;
 
-	i = 0;
-	while (list[i])
-		free(list[i++]);
-	free (list);
+	curr = *b;
+	n = an->n;
+	while (curr->next != NULL)
+		curr = curr->next;
+	curr->n = n;
+	curra = *a;
+	if (curra->n != n)
+	{
+		while (curra->next->n != n && curra->next != NULL)
+			curra = curra->next;
+	}
+	curra->next =curra->next->next;
+	free(an);
 }
+d

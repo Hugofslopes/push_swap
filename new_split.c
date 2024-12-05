@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:08:34 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/04 15:28:34 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:43:17 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ size_t	count_char(char *str, char c)
 {
 	size_t	i;
 	size_t	count;
-	
+
 	i = 0;
 	count = 0;
 	while (str[i])
 	{
 		if (str[i] != c)
 		{
-			while (str[i] != c && str[i]) 
+			while (str[i] != c && str[i])
 			{
 				i++;
 				count++;
@@ -55,18 +55,17 @@ size_t	count_char(char *str, char c)
 	return (0);
 }
 
-void dealoc(char **strgs)
+void	dealoc(char **strgs)
 {
 	size_t	i;
 
 	i = 0;
-	while(strgs[i])
+	while (strgs[i])
 		free (strgs[i++]);
-	
 	free(strgs);
 }
 
-void c_strgs( char *str, char **strgs, char c)
+void	c_strgs( char *str, char **strgs, char c)
 {
 	size_t	nbr_c;
 	size_t	i;
@@ -93,14 +92,14 @@ void c_strgs( char *str, char **strgs, char c)
 	strgs[i] = 0;
 }
 
-char **new_split (char *str, char c)
+char	**new_split(char *str, char c)
 {
 	size_t	ct_w;
 	char	**strgs;
 
 	ct_w = count_words(str, c);
 	strgs = malloc((ct_w * sizeof(char *)) + 1);
-	if(!strgs)
+	if (!strgs)
 		return (NULL);
 	c_strgs(str, strgs, c);
 	return (strgs);

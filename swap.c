@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dealoc_.c                                          :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 13:52:18 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/05 11:44:16 by hfilipe-         ###   ########.fr       */
+/*   Created: 2024/12/05 14:12:51 by hfilipe-          #+#    #+#             */
+/*   Updated: 2024/12/05 14:40:01 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	dealoc_(char **list)
+void swap(t_l **list)
 {
-	size_t	i;
+	t_l *curr;
+	int tmp;
 
-	i = 0;
-	while (list[i])
-		free(list[i++]);
-	free (list);
+	curr = *list;
+	if (curr->next != NULL)
+	{
+		while (curr->next->next != NULL)
+			curr = curr->next;
+	}
+	tmp = curr->n;
+	curr->n = curr->next->n;
+	curr->next->n = tmp;
 }

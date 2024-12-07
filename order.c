@@ -1,33 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   order.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 14:12:51 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/06 18:47:38 by hfilipe-         ###   ########.fr       */
+/*   Created: 2024/12/07 10:15:15 by hfilipe-          #+#    #+#             */
+/*   Updated: 2024/12/07 11:12:26 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_l **list, char c)
+void	order(t_l **a, t_l **b, size_t nr_nodes, int break_f)
 {
+	int	average;
 	t_l	*curr;
-	int	tmp;
-
-	curr = *list;
+	
+	if (break_f == (int)nr_nodes)
+		return;
+	break_f = 0;
+	curr = *a;
 	if (curr->next != NULL)
 	{
-		while (curr->next->next != NULL)
+		while (curr->next != NULL)
+		{
+			average += curr->n;
 			curr = curr->next;
+		}
 	}
-	tmp = curr->n;
-	curr->n = curr->next->n;
-	curr->next->n = tmp;
-	if (c == 'a')
-		ft_putstr("sa\n");
-	else if (c == 'b')
-		ft_putstr("sb\n");
+	average /= nr_nodes;
+	curr = *a;
+	while (curr->next != NULL)
+	{
+		if (curr->n >= average)
+			break_f++;
+		curr = curr->next;
+	}
+		if (curr->n < average)
+		{
+			push(a, b, 'b');
+			nr_nodes--;
+		}
+	else
+		rotate(a, 'a');
+	test_prints(a, b);
+	order(a, b, nr_nodes, break_f);
 }

@@ -3,33 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:42:03 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/05 16:14:53 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/07 11:26:21 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push(t_l **a, t_l *an, t_l **b)
+void	push(t_l **a, t_l **b, char c)
 {
-	t_l	*curr;
-	t_l	*curra;
-	int	n;
+	t_l	*new_node;
 
-	curr = *b;
-	n = an->n;
-	while (curr->next != NULL)
-		curr = curr->next;
-	curr->n = n;
-	curra = *a;
-	if (curra->n != n)
+	new_node = malloc(sizeof(t_l));
+	if (!new_node)
 	{
-		while (curra->next->n != n && curra->next != NULL)
-			curra = curra->next;
+		ft_lstclear(a);
+		ft_lstclear(b);
+		exit(1);
 	}
-	curra->next =curra->next->next;
-	free(an);
+	pushb(a, b, &new_node);
+	if (c == 'a')
+		ft_putstr("pa\n");
+	else if (c == 'b')
+		ft_putstr("pb\n");
 }
-d
+
+void	pushb(t_l **a, t_l **b, t_l **new_node)
+{
+	t_l	*top_a;
+	t_l	*top_b;
+
+	top_a = *a;
+	top_b = *b;
+	if (top_a != NULL)
+	{
+		while (top_a->next != NULL)
+			top_a = top_a->next;
+	}
+	(*new_node)->n = top_a->n;
+	(*new_node)->next = NULL;
+	(*new_node)->prev = NULL;
+	if (*b == NULL)
+		*b = (*new_node);
+	else
+	{
+		while (top_b->next != NULL)
+			top_b = top_b->next;
+		top_b->next = (*new_node);
+		(*new_node)->prev = top_b;
+	}
+	if (top_a->prev != NULL)
+		top_a->prev->next = NULL;
+	else
+		*a = NULL;
+	free(top_a);
+}

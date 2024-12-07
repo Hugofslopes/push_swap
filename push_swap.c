@@ -3,48 +3,71 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:07:44 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/05 16:14:52 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/07 11:29:29 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*push_swap(char **list, int argc, t_ps **st)
-{
-	char	**list2;
-	int		*list3;
+/*
+SA swap top of a 
+SB swap top of b 
+SS
+PA push to a (1st ele)
+PB push to b
+RA rotate all of a 
+RB rotate all of b
+RR
+RRA shift down A
+RRB Shift down B
+RRR
 
+*/
+
+int	main(int argc, char **argv)
+{
+	t_l		*a;
+	t_l		*b;
+
+	a = NULL;
+	b = NULL;
+	if (argc < 2 || !argv[1][0])
+		return (0);
+	push_swap(argv, argc, &a, &b);
+	return (0);
+}
+
+void	push_swap(char **argv, int argc, t_l **a, t_l **b)
+{
+	char	**list;
+	int		*list2;
+	size_t	nbr_nod;
+	
+	nbr_nod = 0;
 	if (argc > 2)
 	{
-		(*st)->strgs = list + 1;
-		(*st)->array = char_int_array((*st)->strgs);
+		list = argv + 1;
+		list2 = char_int_array(list, &nbr_nod);
 	}
 	else
 	{
-		(*st)->strgs = new_split(list[1], ' ');
-		(*st)->array = char_int_array((*st)->strgs);
+		list = new_split(argv[1], ' ');
+		list2 = char_int_array(list, &nbr_nod);
 	}
 	if (argc == 2)
-		dealoc_(list2);
-	add_to_lists((*st)->a , (*st)->b, list3);
-	puts("listA");
-	for (t_l *curr = (*st).a; curr != NULL ; curr = curr->next)
-		printf("%10d\n", curr->n);
-	puts("listB");
-	for (t_l *curr3 = (*st)->array; curr3 != NULL ; curr3 = curr3->next)
-		printf("%10d\n", curr3->n);
-	swap(a);
-	puts("\n");
-	puts("listA");
-	for (t_l *curr2 = *a; curr2 != NULL ; curr2 = curr2->next)
-		printf("%10d\n", curr2->n);
-	push(a, (*a)->next, b);
-	puts("\n");
-	puts("listb");
-	for (t_l *curr4 = *b; curr4 != NULL ; curr4 = curr4->next)
-		printf("%10d\n", curr4->n);
-	return ("ar");
+		dealoc_(list);
+	add_to_lists(a, list2);
+	while (!in_order(a))
+	{
+		if (nbr_nod == 2)
+			swap(a, 'a');
+		else if (nbr_nod == 3)
+			order_3(a);
+		else
+			order(a, b, nbr_nod, 0);
+		break;
+	}
 }

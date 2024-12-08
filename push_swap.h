@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:04:42 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/07 10:43:23 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/08 12:20:42 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void	reverse_rotate(t_l **list, char c);
 void	rr(t_l **a, t_l **b);
 void	ss(t_l **a, t_l **b);
 void	pp(t_l **a, t_l **b);
-int 	in_order(t_l **a);
-int		order_3(t_l **a);
+int		in_order(t_l **a);
+void	order_3(t_l **a);
 void	order(t_l **a, t_l **b, size_t nr_nodes, int break_f);
-
-void test_prints(t_l **a, t_l **b);
-
+int		calc_avg(t_l *curr, int average, size_t nr_nodes);
+void	order_b_afterpush(t_l **b);
+void	test_prints(t_l **a, t_l **b);
 #endif

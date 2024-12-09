@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:07:44 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/07 11:29:29 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:35:01 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,24 @@ int	main(int argc, char **argv)
 void	push_swap(char **argv, int argc, t_l **a, t_l **b)
 {
 	char	**list;
-	int		*list2;
+	long	*list2;
 	size_t	nbr_nod;
-	
+
 	nbr_nod = 0;
 	if (argc > 2)
 	{
 		list = argv + 1;
-		list2 = char_int_array(list, &nbr_nod);
+		list2 = char_int_array(list, &nbr_nod, argc);
 	}
 	else
 	{
 		list = new_split(argv[1], ' ');
-		list2 = char_int_array(list, &nbr_nod);
+		list2 = char_int_array(list, &nbr_nod, argc);
 	}
 	if (argc == 2)
 		dealoc_(list);
-	add_to_lists(a, list2);
+	add_to_lists(a, list2, nbr_nod);
+	test_prints(a, b);
 	while (!in_order(a))
 	{
 		if (nbr_nod == 2)
@@ -70,4 +71,6 @@ void	push_swap(char **argv, int argc, t_l **a, t_l **b)
 			order(a, b, nbr_nod, 0);
 		break;
 	}
+	ft_lstclear(a);
+	ft_lstclear(b);
 }

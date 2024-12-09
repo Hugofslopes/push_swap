@@ -3,51 +3,74 @@
 /*                                                        :::      ::::::::   */
 /*   char_int_array.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 13:50:31 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/06 21:29:53 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:24:17 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*char_int_array(char **str, size_t *i)
+long	*char_int_array(char **str, size_t *i, int argc)
 {
 	size_t	ct_a;
-	int		*array;
+	long	*array;
 	int		sign;
 
 	sign = 1;
 	ct_a = count_arrays(str);
-	array = malloc (ct_a * sizeof(int *));
+	array = ft_calloc(ct_a, sizeof(long *));
 	if (!array)
 		exit(1);
 	array = char_int_arrayb(str, array, sign, i);
+	if (!array)
+	{
+		array_errors(str, argc);
+		exit(1);
+	}
 	return (array);
 }
 
-int	*char_int_arrayb(char **str, int *array, int sign, size_t *i)
+void	array_errors(char **str, int argc)
+{
+	if (argc == 2)
+		dealoc_(str);
+}
+
+long	*char_int_arrayb(char **str, long *array, int sign, size_t *i)
 {
 	size_t	j;
 
 	while (str[*i])
 	{
 		j = 0;
-		while (str[*i][j] == 32 || (str[*i][j] >= 9 && str[*i][j] <= 13))
-			j++;
+		sign = 1;
+		if (!((str[*i][j] >= '0' && str[*i][j] <= '9') || \
+		(str[*i][j] == '-') || (str[*i][j] == '+')))
+			return (array_errors2(array));
 		if (str[*i][j] == '-' || str[*i][j] == '+')
 			if (str[*i][j++] == '-')
 				sign = -1;
 		while (str[*i][j] && str[*i][j] >= '0' && str[*i][j] <= '9')
-		{
-			array[*i] = array[*i] * 10 + (str[*i][j]) - 48;
-			j++;
-		}
+			array[*i] = array[*i] * 10 + (str[*i][j++]) - 48;
+		if (!(str[*i][j] >= '0' && str[*i][j] <= '9' || str[*i][j] == ' ' || \
+		str[*i][j] == '\0'))
+			return (array_errors2(array));
 		if (sign == -1)
 			array[*i] *= -1;
+		if (array[*i] > 2147483647 || array[*i] < -2147483648)
+			return (array_errors2(array));
 		(*i)++;
 	}
+	return (array);
+}
+
+long	*array_errors2(long *array)
+{
+	ft_putstr_err("Error\n");
+	free(array);
+	array = NULL;
 	return (array);
 }
 

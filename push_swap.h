@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:04:42 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/08 12:20:42 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:31:33 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,18 @@ size_t	count_char(char *str, char c);
 void	dealoc(char **strgs);
 char	**new_split(char *str, char c);
 void	c_strgs( char *str, char **strgs, char c);
-int		*char_int_array(char **str, size_t *nbr_nod);
-int		*char_int_arrayb(char **str, int *array, int sign, size_t *i);
+long	*char_int_array(char **str, size_t *nbr_nod, int argc);
+long	*char_int_arrayb(char **str, long *array, int sign, size_t *i);
 size_t	count_arrays(char **str);
 void	dealoc_(char **list);
 void	free_chars(char **str, size_t i);
-void	add_to_lists(t_l **a, int *array);
+void	add_to_lists(t_l **a, long *array, size_t nr_nod);
 void	add_to_listsb(t_l **curr, t_l **new_node, t_l **a);
 void	ft_lstclear(t_l **lst);
 void	swap(t_l **list, char c);
 void	push(t_l **a, t_l **b, char c);
 void	pushb(t_l **a, t_l **b, t_l **new_node);
+void	b_not_null(t_l *top_b, t_l **new_node);
 void	rotate(t_l **list, char c);
 void	ft_putstr(char *s);
 void	reverse_rotate(t_l **list, char c);
@@ -54,4 +55,10 @@ void	order(t_l **a, t_l **b, size_t nr_nodes, int break_f);
 int		calc_avg(t_l *curr, int average, size_t nr_nodes);
 void	order_b_afterpush(t_l **b);
 void	test_prints(t_l **a, t_l **b);
+int		check_equal_n(t_l **a);
+void	exit_clean(t_l **a);
+void	ft_putstr_err(char *s);
+long	*array_errors2(long *array);
+void	array_errors(char **str, int argc);
+void	*ft_calloc(size_t nmemb, size_t size);
 #endif

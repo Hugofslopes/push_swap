@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:08:34 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/05 11:43:17 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/09 12:58:01 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	c_strgs( char *str, char **strgs, char c)
 			str++;
 		j = 0;
 		nbr_c = count_char(str, c);
-		strgs[i] = malloc((nbr_c * sizeof(char)) + 1);
+		strgs[i] = ft_calloc(nbr_c + 1, sizeof(char));
 		if (!strgs)
 		{
 			dealoc(strgs);
@@ -98,7 +98,7 @@ char	**new_split(char *str, char c)
 	char	**strgs;
 
 	ct_w = count_words(str, c);
-	strgs = malloc((ct_w * sizeof(char *)) + 1);
+	strgs = ft_calloc(ct_w + 1, sizeof(char *));
 	if (!strgs)
 		return (NULL);
 	c_strgs(str, strgs, c);

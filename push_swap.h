@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:04:42 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/09 14:31:33 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:07:55 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	pp(t_l **a, t_l **b);
 int		in_order(t_l **a);
 void	order_3(t_l **a);
 void	order(t_l **a, t_l **b, size_t nr_nodes, int break_f);
-int		calc_avg(t_l *curr, int average, size_t nr_nodes);
+int		calc_avg(t_l *curr);
 void	order_b_afterpush(t_l **b);
 void	test_prints(t_l **a, t_l **b);
 int		check_equal_n(t_l **a);

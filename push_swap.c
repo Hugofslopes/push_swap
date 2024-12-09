@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:07:44 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/09 14:35:01 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/09 15:40:43 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	push_swap(char **argv, int argc, t_l **a, t_l **b)
 	if (argc == 2)
 		dealoc_(list);
 	add_to_lists(a, list2, nbr_nod);
-	test_prints(a, b);
 	while (!in_order(a))
 	{
 		if (nbr_nod == 2)

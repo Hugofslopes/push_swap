@@ -3,26 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   order.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 10:15:15 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/08 12:20:44 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:27:09 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void orderb(t_l **a, t_l **b, size_t nr_nodes, int average, int break_f);
 
 void	order(t_l **a, t_l **b, size_t nr_nodes, int break_f)
 {
 	int	average;
 	t_l	*curr;
 
+	break_f = 0;
+	curr = *a;
+	average = calc_avg(curr);
+	orderb(a, b, nr_nodes, average, break_f);
+}
+
+void orderb(t_l **a, t_l **b, size_t nr_nodes, int average, int break_f)
+{
+	t_l	*curr;
+
 	if (break_f == (int)nr_nodes)
 		return ;
 	break_f = 0;
 	curr = *a;
-	average = 0;
-	average = calc_avg(curr, average, nr_nodes);
 	while (curr->next != NULL)
 	{
 		if (curr->n >= average)
@@ -38,21 +48,25 @@ void	order(t_l **a, t_l **b, size_t nr_nodes, int break_f)
 	else
 		rotate(a, 'a');
 	test_prints(a, b);
-	order(a, b, nr_nodes, break_f);
+	orderb(a, b, nr_nodes, average, break_f);
 }
 
-int	calc_avg(t_l *curr, int average, size_t nr_nodes)
+int	calc_avg(t_l *curr)
 {
-	if (curr->next != NULL)
+    int min = 2147483647;
+    int max = -2147483648;
+
+    while (curr != NULL) 
 	{
-		while (curr->next != NULL)
-		{
-			average += curr->n;
-			curr = curr->next;
-		}
-	}
-	average /= nr_nodes;
-	return (average);
+		if (curr->n < min)
+			min = curr->n; 
+		if (curr->n > max)
+			max = curr->n; 
+        curr = curr->next;
+    }
+	if (min < 0)
+		return (min + max);
+	return (max - min);
 }
 
 void	order_b_afterpush(t_l **b)

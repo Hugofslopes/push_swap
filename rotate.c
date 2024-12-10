@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 12:10:00 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 16:39:02 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/10 20:13:41 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,26 @@
 
 void	rotate(t_l **list, char c)
 {
-	t_l	*frst;
-	t_l	*lst;
-	t_l	*curr;
-	int	tmp;
-	int	tmp2;
+	t_l	*first;
+    t_l	*curr;
+	int first_value;
+	int	last_value;
+	int	temp;
 
-	frst = *list;
-	lst = *list;
-	curr = *list;
-	while (frst->next != NULL)
-		frst = frst->next;
-	tmp = lst->n;
-	lst->n = frst->n;
-	curr = curr->next;
-	tmp2 = curr->n;
-	curr->n = tmp;
-	while (curr->next != NULL)
+	first = *list;
+	curr = first;
+    first_value = first->n;
+    while (curr->next != NULL)
+        curr = curr->next;
+    last_value = curr->n; 
+    curr = first; 
+	first->n = last_value;
+    while (curr->next != NULL)
 	{
-		curr = curr->next;
-		tmp = curr->n;
-		curr->n = tmp2;
+        temp = curr->next->n; 
+        curr->next->n = first_value; 
+        first_value = temp; 
+        curr = curr->next;
 	}
 	if (c == 'a')
 		ft_putstr("ra\n");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_to_lists.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:43:41 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 16:39:01 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:45:31 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	add_to_lists(t_l **a, long *array, size_t nr_nod)
 		else
 			add_to_listsb(&curr, &new_node, a);
 	}
-	free(array);
+	//free(array);
 	if (!check_equal_n(a))
 		exit_clean(a);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:04:42 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 16:39:00 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:50:13 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct link_list
 	int					n;
 	struct link_list	*next;
 	struct link_list	*prev;
-	size_t				n_nodes;
+	int					index;
 }	t_l;
 
 void	push_swap(char **argv, int argc, t_l **a, t_l **b);
@@ -62,4 +62,7 @@ long	*array_errors2(long *array);
 void	array_errors(char **str, int argc);
 void	*ft_calloc(size_t nmemb, size_t size);
 void 	order_5(t_l **a, t_l **b);
+void	ft_bzero(void *ptr, size_t n);
+void 	dec_to_bin(int n);
+void 	sort_array(long **array, size_t size);
 #endif

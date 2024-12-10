@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:07:44 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 16:38:59 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:47:35 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	push_swap(char **argv, int argc, t_l **a, t_l **b)
 	}
 	if (argc == 2)
 		dealoc_(list);
+	sort_array(&list2, nbr_nod);
 	add_to_lists(a, list2, nbr_nod);
-	test_prints(a, b);
 	while (!in_order(a))
 	{
 		if (nbr_nod == 2)
@@ -73,7 +73,6 @@ void	push_swap(char **argv, int argc, t_l **a, t_l **b)
 			order(a, b, nbr_nod, 0);
 		break;
 	}
-	test_prints(a, b);
 	ft_lstclear(a);
 	ft_lstclear(b);
 }

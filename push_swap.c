@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:07:44 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/09 15:40:43 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:38:59 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,20 @@ void	push_swap(char **argv, int argc, t_l **a, t_l **b)
 	if (argc == 2)
 		dealoc_(list);
 	add_to_lists(a, list2, nbr_nod);
+	test_prints(a, b);
 	while (!in_order(a))
 	{
 		if (nbr_nod == 2)
 			swap(a, 'a');
 		else if (nbr_nod == 3)
 			order_3(a);
+		else if (nbr_nod == 5)
+			order_5(a, b);
 		else
 			order(a, b, nbr_nod, 0);
 		break;
 	}
+	test_prints(a, b);
 	ft_lstclear(a);
 	ft_lstclear(b);
 }

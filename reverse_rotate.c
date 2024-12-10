@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 18:17:16 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/06 18:51:50 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:17:16 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,24 @@
 
 void	reverse_rotate(t_l **list, char c)
 {
-	t_l	*last_node;
+	t_l	*frst;
+	t_l	*lst;
+	t_l	*curr;
+	int	tmp;
 
-	last_node = *list;
-	while (last_node->next != NULL)
-		last_node = last_node->next;
-	if (last_node->prev != NULL)
-		last_node->prev->next = NULL;
-	last_node->next = *list;
-	last_node->prev = NULL;
-	(*list)->prev = last_node;
-	*list = last_node;
+	frst = *list;
+	lst = *list;
+	curr = *list;
+	while (frst->next != NULL)
+		frst = frst->next;
+	tmp = frst->n;
+	frst->n = lst->n;
+	while (curr->next->next != NULL)
+	{
+		curr->n = curr->next->n;
+		curr = curr->next;
+	}
+	curr->n = tmp;
 	if (c == 'a')
 		printf("rra\n");
 	else if (c == 'b')

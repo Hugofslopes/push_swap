@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:43:41 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/09 14:24:34 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:39:01 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	add_to_lists(t_l **a, long *array, size_t nr_nod)
 		}
 		new_node->next = NULL;
 		new_node->prev = NULL;
-		new_node->n = array[i++];
+		new_node->n = array[--nr_nod];
 		if (*a == NULL)
 			*a = new_node;
 		else

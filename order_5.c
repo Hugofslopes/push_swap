@@ -1,28 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inorder.c                                          :+:      :+:    :+:   */
+/*   order_5.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 21:11:17 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 16:31:03 by hfilipe-         ###   ########.fr       */
+/*   Created: 2024/12/10 12:52:25 by hfilipe-          #+#    #+#             */
+/*   Updated: 2024/12/10 13:14:10 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	in_order(t_l **a)
+void order_5(t_l **a, t_l **b)
 {
+	int	max;
+	int	min;
 	t_l	*curr;
-	int min;
 
+	min = 2147483647;
+	max = -2147483648;
 	curr = *a;
-	while (curr->next != NULL)
+	while (curr)
 	{
-		if (curr->n < curr->next->n)
-			return (0);
+		if (curr->n > max)
+			max = curr->n;
+		if (curr->n < min)
+			min = curr->n;
 		curr = curr->next;
 	}
-	return (1);
+	curr = *a;
+	while (curr->n != min)
+		curr = curr->next;
+	push(a, b, 'b');
+	curr = *a;
+	while (curr->n != max)
+		curr = curr->next;
+	push(a, b, 'b');
+	order_3(a);
+	push(b, a, 'a');
+	rotate(a, 'a');
+	push(b, a, 'a');
 }

@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:04:42 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/09 16:07:55 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:39:00 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ void	ft_putstr_err(char *s);
 long	*array_errors2(long *array);
 void	array_errors(char **str, int argc);
 void	*ft_calloc(size_t nmemb, size_t size);
+void 	order_5(t_l **a, t_l **b);
 #endif

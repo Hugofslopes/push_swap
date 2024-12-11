@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:20:19 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 22:22:11 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/11 09:42:30 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_array(long **array, size_t size) 
+void sort_array(long **array, size_t size, t_l **a) 
 {
     size_t	i;
     size_t	j;
@@ -34,12 +34,31 @@ void sort_array(long **array, size_t size)
         }
         i++; 
     }
+    sort_array_put_index(array,size, a);
 }
 
-i = 0;
-while (curr->n != array[i]
-    curr = curr->next
-curr->index = i;
-    i++;
+void sort_array_put_index(long **array, size_t size, t_l **a) 
+{
+    int i;
+    t_l *curr;
 
-
+    i = 0;
+    curr = *a;
+    while (i < size)
+    {   
+        if (curr->n == (*array)[i])
+        {
+            curr->index = i;
+            i++;
+            curr = *a;
+            continue;
+        }
+        curr = curr->next;
+    }
+    curr = *a;
+    while (curr != NULL)
+    {
+        printf("%zu\t%d\n", curr->index, curr->n);
+        curr = curr->next;
+    }
+}

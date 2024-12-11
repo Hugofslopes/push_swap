@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 12:10:00 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 20:13:41 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/11 13:11:33 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,20 @@
 
 void	rotate(t_l **list, char c)
 {
-	t_l	*first;
-    t_l	*curr;
-	int first_value;
-	int	last_value;
-	int	temp;
+	t_l *last;
+    t_l *second_last;
 
-	first = *list;
-	curr = first;
-    first_value = first->n;
-    while (curr->next != NULL)
-        curr = curr->next;
-    last_value = curr->n; 
-    curr = first; 
-	first->n = last_value;
-    while (curr->next != NULL)
+    last = *list;
+    while (last->next != NULL)
 	{
-        temp = curr->next->n; 
-        curr->next->n = first_value; 
-        first_value = temp; 
-        curr = curr->next;
+        second_last = last;
+        last = last->next;
 	}
+    second_last->next = NULL;
+    last->next = *list;
+    last->prev = NULL;
+    (*list)->prev = last;
+    *list = last;  
 	if (c == 'a')
 		ft_putstr("ra\n");
 	else if (c == 'b')

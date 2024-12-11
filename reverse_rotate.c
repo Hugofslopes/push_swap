@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 18:17:16 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 16:17:16 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/11 13:11:35 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,21 @@
 
 void	reverse_rotate(t_l **list, char c)
 {
-	t_l	*frst;
-	t_l	*lst;
-	t_l	*curr;
-	int	tmp;
+	t_l	*last;
+	t_l	*first;
 
-	frst = *list;
-	lst = *list;
-	curr = *list;
-	while (frst->next != NULL)
-		frst = frst->next;
-	tmp = frst->n;
-	frst->n = lst->n;
-	while (curr->next->next != NULL)
-	{
-		curr->n = curr->next->n;
-		curr = curr->next;
-	}
-	curr->n = tmp;
+	first = *list;
+    last = first;
+    while (last->next != NULL) 
+        last = last->next;
+    *list = first->next;
+    last->next = first;  
+    first->next = NULL;
+    first->prev = last;
+    if (*list != NULL) 
+        (*list)->prev = NULL;
 	if (c == 'a')
-		printf("rra\n");
+		ft_putstr("ra\n");
 	else if (c == 'b')
-		printf("rrb\n");
+		ft_putstr("rb\n");
 }

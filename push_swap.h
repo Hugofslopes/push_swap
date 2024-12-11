@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:04:42 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 21:50:13 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/11 14:02:12 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct link_list
 	int					n;
 	struct link_list	*next;
 	struct link_list	*prev;
-	int					index;
+	size_t				index;
 }	t_l;
 
 void	push_swap(char **argv, int argc, t_l **a, t_l **b);
@@ -51,9 +51,10 @@ void	ss(t_l **a, t_l **b);
 void	pp(t_l **a, t_l **b);
 int		in_order(t_l **a);
 void	order_3(t_l **a);
-void	order(t_l **a, t_l **b, size_t nr_nodes, int break_f);
+int		order(t_l **a, t_l **b, size_t nr_nodes, char c);
+int		orderb(t_l **a, t_l **b, int *nr_nodes, int *break_f, int average, char c);
 int		calc_avg(t_l *curr);
-void	order_b_afterpush(t_l **b);
+void	order_b_afterpush(t_l **b, int average);
 void	test_prints(t_l **a, t_l **b);
 int		check_equal_n(t_l **a);
 void	exit_clean(t_l **a);
@@ -64,5 +65,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 void 	order_5(t_l **a, t_l **b);
 void	ft_bzero(void *ptr, size_t n);
 void 	dec_to_bin(int n);
-void 	sort_array(long **array, size_t size);
+void 	sort_array(long **array, size_t size, t_l **a);
+void 	sort_array_put_index(long **array, size_t size, t_l **a);
+void 	radixSort(t_l **head_ref);
 #endif

@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 21:11:17 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 16:31:03 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/11 09:43:20 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	in_order(t_l **a)
 {
 	t_l	*curr;
-	int min;
 
 	curr = *a;
 	while (curr->next != NULL)

@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -59,8 +60,8 @@ void	push_swap(char **argv, int argc, t_l **a, t_l **b)
 	}
 	if (argc == 2)
 		dealoc_(list);
-	sort_array(&list2, nbr_nod);
 	add_to_lists(a, list2, nbr_nod);
+	sort_array(&list2, nbr_nod, a);
 	while (!in_order(a))
 	{
 		if (nbr_nod == 2)
@@ -70,9 +71,12 @@ void	push_swap(char **argv, int argc, t_l **a, t_l **b)
 		else if (nbr_nod == 5)
 			order_5(a, b);
 		else
-			order(a, b, nbr_nod, 0);
+			nbr_nod = order(a, b, nbr_nod, 'a');
 		break;
 	}
+	test_prints(a, b);
+	radixSort(a);
+	test_prints(a, b);
 	ft_lstclear(a);
 	ft_lstclear(b);
 }

@@ -6,17 +6,18 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 18:54:45 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 20:13:57 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/15 18:17:11 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void dec_to_bin(int n)
+int *dec_to_bin(int n, int *array2)
 {
 	int	array[32];
 	int i;
 	
+	array2 = array;
 	i = 32;
 	ft_bzero(array, 32);
 	
@@ -25,7 +26,5 @@ void dec_to_bin(int n)
 		array[--i] = n % 2;
 		n /= 2;
 	}
-	i = 0;
-	while (i < 32)
-	printf("%2d", array[i++]);
+	return (array2);
 }

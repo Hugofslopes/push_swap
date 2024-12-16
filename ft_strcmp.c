@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pp.c                                               :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 18:23:52 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/15 17:47:47 by hfilipe-         ###   ########.fr       */
+/*   Created: 2024/12/16 10:01:21 by hfilipe-          #+#    #+#             */
+/*   Updated: 2024/12/16 10:13:44 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pp(t_l **a, t_l **b)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	push(a, b, 'p');
-	rotate(b, 'p');
-	push(b, a, 'p');
-	rotate(a, 'p');
-	ft_putstr("pp\n");
-	ft_putstr("rr\n");
+	while (*s1 && *s2)
+	{
+		s1++;
+		s2++;
+		if (*s1 != *s2)
+			return (0);
+	}
+	return (1);
 }

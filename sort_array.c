@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:20:19 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/11 09:42:30 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:17:23 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,4 @@ void sort_array_put_index(long **array, size_t size, t_l **a)
         curr = curr->next;
     }
     curr = *a;
-    while (curr != NULL)
-    {
-        printf("%zu\t%d\n", curr->index, curr->n);
-        curr = curr->next;
-    }
 }

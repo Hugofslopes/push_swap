@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:42:03 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/15 18:00:53 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:01:11 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	pushb(t_l **a, t_l **b, t_l **new_node)
 	if (*b == NULL)
 		*b = (*new_node);
 	else
-		b_not_null(top_b, new_node);
+		b_not_null(*b, new_node);
 	if (top_a->prev != NULL)
 		top_a->prev->next = NULL;
 	else
@@ -58,9 +58,11 @@ void	pushb(t_l **a, t_l **b, t_l **new_node)
 }
 
 void	b_not_null(t_l *top_b, t_l **new_node)
-{
-	while (top_b->next != NULL)
-		top_b = top_b->next;
+{	if (top_b->next != NULL)
+	{
+		while (top_b->next != NULL)
+			top_b = top_b->next;
+	}
 	top_b->next = (*new_node);
 	(*new_node)->prev = top_b;
 }

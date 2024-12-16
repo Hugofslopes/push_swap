@@ -5,77 +5,166 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 13:40:37 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/11 15:46:22 by hfilipe-         ###   ########.fr       */
+/*   Created: 2024/12/10 18:54:45 by hfilipe-          #+#    #+#             */
+/*   Updated: 2024/12/16 19:27:51 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void radixSort(t_l **list) {
-    int nr_nodes;
+void index_to_bin(t_l **a);
+
+
+
+int calc_nr_nodes(t_l **a)
+{
+    int n;
     t_l *curr;
-    int *array;
-    size_t i;
 
-    i = 0;
-    nr_nodes = 0;
-    curr = *list;
+    n = 0;
+    curr = *a;
     while (curr)
     {
-        curr = curr->next;
-        nr_nodes++;
-    }
-    
-    array = malloc(nr_nodes * sizeof(int));
-    curr = *list;
-    while (curr)
-    {
-        array[i++] = curr->index;
+        n++;
         curr = curr->next;
     }
- 
+    return (n);
+}
 
-    size_t	j;
-	int	tmp;
+void index_to_bin(t_l **a)
+{
+	t_l *curr;
 
-	i = 0;
-    while (i < nr_nodes)
+	curr = *a;
+    int n;
+	while (curr)
 	{
-        j = 0;
-        while (j < nr_nodes - i)
-        {
-            if (array[j] > array[j + 1]) 
-            {
-                tmp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = tmp; 
-            }
-            j++;
-        }
-        i++; 
-    }
+        n = curr->index;    
+		dec_to_bin(n , &curr->index_b);
+        curr = curr->next;
+	}
+}
 
+int smaller_av(int n ,t_l **a)
+{
+    t_l *curr;
 
-t_l *frst;
-curr = *list;
-while (curr->next != NULL)
-    curr = curr->next;
-frst = curr;
-
-i = 0;
-    while (array[i])
+    curr = *a;
+    while(curr)
     {
-        curr = *list;
-        while (curr != frst)
-            curr = curr->next;
-        frst = curr;
-        if (curr->index == array[i])
+        if (curr->index < n)
+            return (0);
+        curr = curr->next;
+    }
+    return(1);
+}
+
+int get_second_node_index(t_l **list)
+{
+	t_l *curr;
+
+	curr = *list;
+    if (curr->next)
+    {
+        if (curr->next->next)
         {
-            i++;
+            while(curr->next->next != NULL)
+                curr = curr->next;
         }
-        else
-            rotate(list, 'a');
+        return (curr->index);
+    }
+    else
+        return (-1);
+	
+}
+void radixb(t_l **a, t_l **b);
+
+void radix(t_l **a, t_l **b )
+{
+    int n;
+    n = (calc_avg(*a) * 2);
+    int n2;
+    n2 = n;
+    n /= 7;
+    //index_to_bin(a);
+    while (calc_nr_nodes(a))
+    {
+        while (get_first_node_index(a) >= n)
+        {
+            if ((*a)->index < n)
+                reverse_rotate(a, 'a');
+            else if (get_second_node_index(a) < n)
+            {
+                swap(a, 'a');
+                
+            }
+            else
+                rotate(a, 'a');
+        }
+        if (get_first_node_index(a) < n)
+        {
+            push(a , b, 'b');
+            if ((*b)->next != NULL)
+            {
+                if (get_first_node_index(b) < (*b)->index)
+                    rotate(b, 'b');
+                if (get_first_node_index(b) < get_second_node_index(b))
+                    swap(b, 'b');
+                else if (get_second_node_index(b) < (*b)->index)
+                {
+                    swap(b, 'b');
+                    rotate(b, 'b');
+                }
+            }
+        }    
+        if ((smaller_av(n , a)))
+            n = n  + (n2 / 7);
+    }
+    radixb( a, b);
+}
+
+int get_max_index(t_l **b)
+{
+    int max;
+    t_l *curr;
+
+    curr = *b;
+    max = -1;
+    while(curr)
+    {
+        if (curr->index > max)
+            max = curr->index;
+        curr = curr->next;
+    }
+    return (max);
+}
+void radixb(t_l **a, t_l **b)
+{
+    int count;
+    count = 0;
+
+    while(*b)
+    {
+        count = 0;
+        while (get_first_node_index(b) != get_max_index(b))
+        {
+            if (get_second_node_index(b) == get_max_index(b))
+            {
+                swap(b, 'b');
+                break;
+            }
+            else
+            {
+                rotate(b, 'b');
+                count++;
+            }
+        }
+        push(b ,a, 'a');
+        while (count)
+        {
+            reverse_rotate(b,'b');
+            count--;
+        }
     }
 }

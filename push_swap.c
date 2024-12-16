@@ -13,21 +13,6 @@
 
 #include "push_swap.h"
 
-/*
-SA swap top of a 
-SB swap top of b 
-SS
-PA push to a (1st ele)
-PB push to b
-RA rotate all of a 
-RB rotate all of b
-RR
-RRA shift down A
-RRB Shift down B
-RRR
-
-*/
-
 int	main(int argc, char **argv)
 {
 	t_l		*a;
@@ -62,10 +47,7 @@ void	push_swap(char **argv, int argc, t_l **a, t_l **b)
 		dealoc_(list);
 	add_to_lists(a, list2, nbr_nod);
 	sort_array(&list2, nbr_nod, a);
-	test_prints(a, b);
-	push(a,b,'b');
-	test_prints(a, b);
-
+	
 	while (!in_order(a))
 	{
 		if (nbr_nod == 2)
@@ -75,7 +57,9 @@ void	push_swap(char **argv, int argc, t_l **a, t_l **b)
 		else if (nbr_nod == 5)
 			order_5(a, b);
 		else
-			nbr_nod = order(a, b, nbr_nod);
+		
+			//nbr_nod = order(a, b, nbr_nod);
+			radix(a,b);
 		break;
 	}
 	ft_lstclear(a);

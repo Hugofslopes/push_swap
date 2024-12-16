@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 18:17:16 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/11 13:11:35 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/16 15:06:22 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	reverse_rotate(t_l **list, char c)
     if (*list != NULL) 
         (*list)->prev = NULL;
 	if (c == 'a')
-		ft_putstr("ra\n");
+		ft_putstr("rra\n");
 	else if (c == 'b')
-		ft_putstr("rb\n");
+		ft_putstr("rrb\n");
 }

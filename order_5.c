@@ -6,15 +6,15 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:52:25 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/16 11:22:45 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/17 16:54:38 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int add_min_max_b(int max, int min, t_l **a, t_l **b);
+int	add_min_max_b(int max, int min, t_l **a, t_l **b);
 
-void order_5(t_l **a, t_l **b)
+void	order_5(t_l **a, t_l **b)
 {
 	int	max;
 	int	min;
@@ -43,9 +43,25 @@ void order_5(t_l **a, t_l **b)
 	rotate(a, 'a');
 }
 
-int add_min_max_b(int max, int min, t_l **a, t_l **b)
+int	find_min_max( t_l **b, t_l **a, int min, int max)
 {
-	t_l *curr;
+	t_l	*curr;
+
+	curr = *a;
+	while (curr->next != NULL)
+		curr = curr->next;
+	rotate(a, 'a');
+	if (curr->index == max || curr->index == min)
+	{
+		push(a, b, 'b');
+		return (1);
+	}
+	return (0);
+}
+
+int	add_min_max_b(int max, int min, t_l **a, t_l **b)
+{
+	t_l	*curr;
 
 	curr = *a;
 	while (curr->next != NULL)
@@ -53,7 +69,7 @@ int add_min_max_b(int max, int min, t_l **a, t_l **b)
 	if (curr->index == max || curr->index == min)
 	{
 		push(a, b, 'b');
-		return (1);	
+		return (1);
 	}
 	while (curr->index != max || curr->index != min)
 	{
@@ -62,16 +78,11 @@ int add_min_max_b(int max, int min, t_l **a, t_l **b)
 		{
 			reverse_rotate(a, 'a');
 			push(a, b, 'b');
-			return (1);	
+			return (1);
 		}
-		while (curr->next != NULL)
-			curr = curr->next;
-		rotate(a, 'a');
-		if (curr->index == max || curr->index == min)
-		{
-			push(a, b, 'b');
-			return (1);	
-		}
+		else
+			if (find_min_max(b, a, min, max))
+				return (1);
 	}
 	return (0);
 }

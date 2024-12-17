@@ -1,13 +1,12 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:07:44 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/10 21:47:35 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:13:36 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +23,27 @@ int	main(int argc, char **argv)
 		return (0);
 	push_swap(argv, argc, &a, &b);
 	return (0);
+}
+
+void	sort_alg(t_l **a, t_l **b, size_t nbr_nod)
+{
+	while (!in_order(a))
+	{
+		if (nbr_nod == 2)
+			swap(a, 'a');
+		else if (nbr_nod == 3)
+			order_3(a);
+		else if (nbr_nod == 5)
+			order_5(a, b);
+		else if (nbr_nod == 100)
+			sort(a, b, 9);
+		else if (nbr_nod < 5 && nbr_nod <= 100)
+			sort(a, b, 2);
+		else if (nbr_nod == 500)
+			sort(a, b, 20);
+	}
+	ft_lstclear(a);
+	ft_lstclear(b);
 }
 
 void	push_swap(char **argv, int argc, t_l **a, t_l **b)
@@ -47,21 +67,6 @@ void	push_swap(char **argv, int argc, t_l **a, t_l **b)
 		dealoc_(list);
 	add_to_lists(a, list2, nbr_nod);
 	sort_array(&list2, nbr_nod, a);
-	
-	while (!in_order(a))
-	{
-		if (nbr_nod == 2)
-			swap(a, 'a');
-		else if (nbr_nod == 3)
-			order_3(a);
-		else if (nbr_nod == 5)
-			order_5(a, b);
-		else
-		
-			//nbr_nod = order(a, b, nbr_nod);
-			radix(a,b);
-		break;
-	}
-	ft_lstclear(a);
-	ft_lstclear(b);
+	free(list2);
+	sort_alg(a, b, nbr_nod);
 }

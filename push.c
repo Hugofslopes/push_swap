@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:42:03 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/16 19:01:11 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:58:25 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void	pushb(t_l **a, t_l **b, t_l **new_node)
 }
 
 void	b_not_null(t_l *top_b, t_l **new_node)
-{	if (top_b->next != NULL)
+{
+	if (top_b->next != NULL)
 	{
 		while (top_b->next != NULL)
 			top_b = top_b->next;

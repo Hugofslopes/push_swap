@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:07:44 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/17 17:13:36 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:49:43 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,8 @@ void	sort_alg(t_l **a, t_l **b, size_t nbr_nod)
 			order_3(a);
 		else if (nbr_nod == 5)
 			order_5(a, b);
-		else if (nbr_nod == 100)
-			sort(a, b, 9);
-		else if (nbr_nod < 5 && nbr_nod <= 100)
-			sort(a, b, 2);
-		else if (nbr_nod == 500)
-			sort(a, b, 20);
+		else if (nbr_nod > 5)
+			radix_sort(a, b, nbr_nod);
 	}
 	ft_lstclear(a);
 	ft_lstclear(b);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:04:42 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/17 15:57:38 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:48:32 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,6 @@ void	sort_array(long **array, size_t size, t_l **a);
 void	sort_array_put_index(long **array, size_t size, t_l **a);
 int		get_first_node_index(t_l **list);
 int		get_second_node_index(t_l **list);
-int		get_max_index(t_l **b);
-int		calc_nr_nodes(t_l **a);
-int		smaller_av(int n, t_l **a);
-void	sortb(t_l **a, t_l **b);
-void	sort(t_l **a, t_l **b, int x );
+void	radix_sort(t_l **a, t_l **b, int nr_nodes);
+int		*get_bits(int *array2, int number);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:07:44 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/18 15:49:43 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/19 10:55:14 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	sort_alg(t_l **a, t_l **b, size_t nbr_nod)
 			swap(a, 'a');
 		else if (nbr_nod == 3)
 			order_3(a);
+		else if (nbr_nod == 4)
+			order_4(a, b);
 		else if (nbr_nod == 5)
 			order_5(a, b);
 		else if (nbr_nod > 5)

@@ -3,31 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:42:03 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/17 20:27:39 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/19 09:58:47 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_l **a, t_l **b, char c)
+void	b_not_null(t_l *top_b, t_l **new_node)
 {
-	t_l	*new_node;
-
-	new_node = malloc(sizeof(t_l));
-	if (!new_node)
+	if (top_b->next != NULL)
 	{
-		ft_lstclear(a);
-		ft_lstclear(b);
-		exit(1);
+		while (top_b->next != NULL)
+			top_b = top_b->next;
 	}
-	pushb(a, b, &new_node);
-	if (c == 'a')
-		ft_putstr("pa\n");
-	else if (c == 'b')
-		ft_putstr("pb\n");
+	top_b->next = (*new_node);
+	(*new_node)->prev = top_b;
 }
 
 void	pushb(t_l **a, t_l **b, t_l **new_node)
@@ -57,13 +50,20 @@ void	pushb(t_l **a, t_l **b, t_l **new_node)
 	free(top_a);
 }
 
-void	b_not_null(t_l *top_b, t_l **new_node)
+void	push(t_l **a, t_l **b, char c)
 {
-	if (top_b->next != NULL)
+	t_l	*new_node;
+
+	new_node = malloc(sizeof(t_l));
+	if (!new_node)
 	{
-		while (top_b->next != NULL)
-			top_b = top_b->next;
+		ft_lstclear(a);
+		ft_lstclear(b);
+		exit(1);
 	}
-	top_b->next = (*new_node);
-	(*new_node)->prev = top_b;
+	pushb(a, b, &new_node);
+	if (c == 'a')
+		ft_putstr("pa\n");
+	else if (c == 'b')
+		ft_putstr("pb\n");
 }

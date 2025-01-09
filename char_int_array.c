@@ -6,30 +6,28 @@
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 13:50:31 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/09 14:24:17 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/19 09:51:08 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	*char_int_array(char **str, size_t *i, int argc)
+long	*array_errors2(long *array)
 {
-	size_t	ct_a;
-	long	*array;
-	int		sign;
-
-	sign = 1;
-	ct_a = count_arrays(str);
-	array = ft_calloc(ct_a, sizeof(long *));
-	if (!array)
-		exit(1);
-	array = char_int_arrayb(str, array, sign, i);
-	if (!array)
-	{
-		array_errors(str, argc);
-		exit(1);
-	}
+	ft_putstr_err("Error\n");
+	free(array);
+	array = NULL;
 	return (array);
+}
+
+size_t	count_arrays(char **str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 void	array_errors(char **str, int argc)
@@ -66,20 +64,25 @@ long	*char_int_arrayb(char **str, long *array, int sign, size_t *i)
 	return (array);
 }
 
-long	*array_errors2(long *array)
+long	*char_int_array(char **str, size_t *i, int argc)
 {
-	ft_putstr_err("Error\n");
-	free(array);
-	array = NULL;
+	size_t	ct_a;
+	long	*array;
+	int		sign;
+
+	sign = 1;
+	ct_a = count_arrays(str);
+	array = ft_calloc(ct_a, sizeof(long *));
+	if (!array)
+	{
+		array_errors(str, argc);
+		exit(1);
+	}
+	array = char_int_arrayb(str, array, sign, i);
+	if (!array)
+	{
+		array_errors(str, argc);
+		exit(1);
+	}
 	return (array);
-}
-
-size_t	count_arrays(char **str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }

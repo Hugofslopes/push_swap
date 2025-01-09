@@ -1,75 +1,78 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   order_5.c                                          :+:      :+:    :+:   */
+/*   order_4.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:52:25 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/19 10:56:47 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2024/12/19 10:18:07 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	calc_max(t_l **a)
+int	find_min(t_l **b, t_l **a, int min)
 {
 	t_l	*curr;
-	int	max;
-
-	max = -1;
-	curr = *a;
-	while (curr)
-	{
-		if (curr->index > max)
-			max = curr->index;
-		curr = curr->next;
-	}
-	return (max);
-}
-
-int	add_max(t_l **a, t_l **b)
-{
-	t_l	*curr;
-	int	max;
 
 	curr = *a;
-	max = calc_max(a);
 	while (curr->next != NULL)
 		curr = curr->next;
-	if (curr->index == max)
+	rotate(a, 'a');
+	if (curr->index == min)
 	{
 		push(a, b, 'b');
 		return (1);
 	}
-	else
+	return (0);
+}
+
+int	add_min(int min, t_l **a, t_l **b)
+{
+	t_l	*curr;
+
+	curr = *a;
+	while (curr->next != NULL)
+		curr = curr->next;
+	if (curr->index == min)
+	{
+		push(a, b, 'b');
+		return (1);
+	}
+	while (curr->index != min)
 	{
 		curr = *a;
-		if (curr->index == max)
+		if (curr->index == min)
 		{
 			reverse_rotate(a, 'a');
 			push(a, b, 'b');
 			return (1);
 		}
 		else
-			rotate (a, 'a');
+			if (find_min(b, a, min))
+				return (1);
 	}
 	return (0);
 }
 
-void	order_5(t_l **a, t_l **b)
+void	order_4(t_l **a, t_l **b)
 {
+	int	min;
 	t_l	*curr;
 	int	check;
 
 	check = 0;
-	while (check < 2)
-		check += add_max(a, b);
+	min = 2147483647;
+	curr = *a;
+	while (curr)
+	{
+		if (curr->index < min)
+			min = curr->index;
+		curr = curr->next;
+	}
+	while (check < 1)
+		check += add_min(min, a, b);
 	order_3(a);
-	if (((*b)->n < (*b)->next->n))
-		swap(b, 'b');
 	push(b, a, 'a');
-	rotate(a, 'a');
-	push(b, a, 'a');
-	rotate(a, 'a');
 }

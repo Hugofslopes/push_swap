@@ -23,6 +23,11 @@
 ## Code Phases
 ### Parsing
 <html>
+    <style>
+        ol {
+            text-align: justify;
+        }
+    </style>
     <ol>
         <li>Check the number of arguments (if there are fewer than two, it means that no numbers were provided).</li>
         <li>Check if there is only one argument or multiple arguments.</li>

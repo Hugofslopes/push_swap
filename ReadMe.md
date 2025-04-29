@@ -26,14 +26,25 @@
     <ol>
         <li>Check the number of arguments (if there are fewer than two, it means that no numbers were provided).</li>
         <li>Check if there is only one argument or multiple arguments.</li>
-        <li>If there are multiple arguments, check for any errors (such as characters that are not numbers) and convert the characters to integers. Call <b>char_int_array()</b></li>
-        <li>If there is only one argument containing multiple numbers, divide it into separate arguments and then convert each character to an integer.Call <b>new_split()</b></li>
-        <li>Create a linked list and add each number in the order that it was inserted into the list.Call <b>add_to_lists()</b></li>
+        <li>If there are multiple arguments, check for any errors (such as characters that are not numbers) and convert the characters to integers. Call <b>char_int_array( )</b></li>
+        <li>If there is only one argument containing multiple numbers, divide it into separate arguments and then convert each character to an integer.Call <b>new_split( )</b></li>
+        <li>Create a linked list and add each number in the order that it was inserted into the list. Call <b>add_to_lists( )</b></li>
         <li>Create an index starting at 0 and going up to the number of elements to facilitate the sort.</li>
     </ol>
 </html>
 
 ### Sorting
+<html>
+    <ol>
+        <li>Check the number of arguments to select the proper sorting algorithm:<br>
+        <b>swap( )</b> for two elements<br>
+        <b>order_3( )</b> for 3 elements<br>
+        <b>order_4( )</b> for 4 elements<br>
+        <b>order_5( )</b> for 5 elements<br>
+        <b>radix_sort( )</b> for more than 5 elements<br></li>
+        <li>Call ft_lstclear( ) for stack A and B to free all the elements</li>
+    </ol>
+</html>
 
 ## Code Setup
 <html>

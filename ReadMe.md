@@ -1,17 +1,16 @@
 <html>
-<p align="center">
-    <img src="https://www.42porto.com/wp-content/uploads/2024/08/42-Porto-Horizontal.png" alt="Pipex Image" />
-</p>
-<h1 align="center">Push_swap</h1>
-    
+    <p align="center">
+        <img src="https://www.42porto.com/wp-content/uploads/2024/08/42-Porto-Horizontal.png" alt="Pipex Image" />
+    </p>
+    <h1 align="center">Push_swap</h1>
+    <p align="center">
+        <img src="https://github.com/user-attachments/assets/c07a1bc2-30f1-47b3-be03-11bcaff3ae8b" width="165" alt="Image" />
+    </p>
 </html>
-div style="text-align: center;">
-    <img src="https://github.com/user-attachments/assets/c07a1bc2-30f1-47b3-be03-11bcaff3ae8b" width="165" alt="Image" />
-</div>
-
+    
 ## Summary
 <html>
-    <p>
+    <p> align="center">
         <b>Push_swap</b>is a project from 42 School that aims to teach how to sort a stack of numbers using only another stack and a limited set of allowed movements. The sorting should be done with as few movements as possible. The permitted movements are:<br>
         <b>Push</b> - This operation transfers the top number from one stack to the other.<br>
         <b>Swap</b> - This operation swaps the top two elements of the stack.<br>

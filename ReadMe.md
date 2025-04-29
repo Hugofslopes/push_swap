@@ -14,8 +14,8 @@
 	<b>Rotate</b>- This operation moves the top element to the end of the stack, causing all other elements to shift up by one position.<br>
 	<b>Reverse rotate</b>- This operation moves the last element to the top of the stack, causing all other elements to shift down by one position.<br>
 	These operations can be performed on either stack A or stack B, or on both at the same time. The operations are as follows:
-    <b>ra</b>: Rotate stack A, <b>rb</b>: Rotate stack B, <b>rr</b>: Rotate stack A and B <b>rra</b>: Reverse rotate stack A, <b>rrb</b>: Reverse rotate stack B, <b>rrr</b>: Reverse rotate stack A and B, <b>pa</b>: Push to A, <b>pb</b>: Push to B, <b>sa</b>: Swap on A, <b>sb</b>: Swap on B, <b>ss</b>: Swap A and B at the same time.
-	I have different sorting methods depending on the number of elements. I have one function for sorting 2 numbers, another for 3 numbers, another for 4 numbers, and another for 5 numbers. After that, I use radix sort for larger sets of numbers.
+    <b>ra</b>: Rotate stack A, <b>rb</b>: Rotate stack B, <b>rr</b>: Rotate stack A and B <b>rra</b>: Reverse rotate stack A, <b>rrb</b>: Reverse rotate stack B, <b>rrr</b>: Reverse rotate stack A and B, <b>pa</b>: Push to A, <b>pb</b>: Push to B, <b>sa</b>: Swap on A, <b>sb</b>: Swap on B, <b>ss</b>: Swap A and B at the same time.<br>
+	I have different sorting methods depending on the number of elements. I have one function for sorting 2 numbers, another for 3 numbers, another for 4 numbers, and another for 5 numbers. After that, I use radix sort for larger sets of numbers.<br>
 	The output of the program will be the movements performed to sort the stack.
     </p>
 </html>
@@ -54,7 +54,7 @@
 
 <html>
     <p>
-    <b>Step 4:</b> Run tests:<br>
+    <b>Step 4:</b> Run tests<br>
     To check if the outputs are correct and if the stack is sorted properly, use the script below. This tool is applicable for Linux and was built by 42 itself.
     </p>
 </html>

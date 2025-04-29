@@ -5,6 +5,8 @@
 <h1 align="center">Push_swap</h1>
 </html>
 
+![Example Image](images/p_s.png)
+
 ## Summary
 <html>
     <p>

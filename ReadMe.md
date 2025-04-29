@@ -22,12 +22,7 @@
 
 ## Code Phases
 ### Parsing
-<html lang="en">
-<head>
-    <title>Steps for Argument Parsing</title>
-</head>
-<body>
-    <h1>Steps for Argument Parsing</h1>
+<html>
     <ol>
         <li>Check the number of arguments (if there are fewer than two, it means that no numbers were provided).</li>
         <li>Check if there is only one argument or multiple arguments.</li>
@@ -35,7 +30,6 @@
         <li>If there is only one argument containing multiple numbers, divide it into separate arguments and then convert each character to an integer.</li>
         <li>Create a linked list and add each number in the order that it was inserted into the list.</li>
     </ol>
-</body>
 </html>
 
 ## Code Setup

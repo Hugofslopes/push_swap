@@ -55,6 +55,7 @@
 <html>
     <p>
     <b>Step 4:</b> Run tests:
+    To check if the outputs are correct and if the stack is sorted properly, use the script below. This tool is applicable for Linux and was built by 42 itself.
     </p>
 </html>
 

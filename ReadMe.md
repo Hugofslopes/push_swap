@@ -50,7 +50,7 @@
 ### Radix sort
 <html>
     <p> Radix sort is a sorting algorithm that uses binary representation. The goal is to convert each number (in this case, the numbers attributed by my index) to binary and group the elements based on the digits in each position.<br>
-    For example, consider the binary numbers 00000001, 00000011, and 00000100.<br>
+    For example, consider the binary numbers 00000001, 00000011 and 00000100.<br>
     <ol>
         <li>First, you group 00000001 with 00000011 because both have a 1 in the first position.</li>
         <li>Then, you add 00000100 during the third check because that is when you find the 1 in that number.</li>

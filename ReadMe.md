@@ -7,7 +7,7 @@
 
 ## Summary
 <html>
-    <p> align="justify">
+    <p>
         <b>Push_swap</b>is a project from 42 School that aims to teach how to sort a stack of numbers using only another stack and a limited set of allowed movements. The sorting should be done with as few movements as possible. The permitted movements are:<br>
         <b>Push</b> - This operation transfers the top number from one stack to the other.<br>
         <b>Swap</b> - This operation swaps the top two elements of the stack.<br>
@@ -22,32 +22,21 @@
 
 ## Code Phases
 ### Parsing
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justified Ordered List</title>
-    <style>
-        ol {
-            text-align: justify; /* Justify the text */
-        }
-    </style>
-</head>
-<body>
+<html>
     <ol>
-        <li>Check the number of arguments (if there are fewer than two, it means that no numbers were provided).</li>
+        <li>Check if the number of arguments (if there are fewer than two, it means that no numbers were provided).</li>
         <li>Check if there is only one argument or multiple arguments.</li>
-        <li>If there are multiple arguments, check for any errors (such as characters that are not numbers) and convert the characters to integers. Call <b>char_int_array()</b>.</li>
-        <li>If there is only one argument containing multiple numbers, divide it into separate arguments and then convert each character to an integer. Call <b>new_split()</b>.</li>
-        <li>Create a linked list and add each number in the order that it was inserted into the list. Call <b>add_to_lists()</b>.</li>
+        <li>If there are multiple arguments, check for any errors (such as characters that are not numbers) and convert the characters to integers. Call <b>char_int_array( )</b></li>
+        <li>If there is only one argument containing multiple numbers, divide it into separate arguments and then convert each character to an integer.Call <b>new_split( )</b></li>
+        <li>Create a linked list and add each number in the order that it was inserted into the list. Call <b>add_to_lists( )</b></li>
         <li>Create an index starting at 0 and going up to the number of elements to facilitate the sort.</li>
     </ol>
-</body>
 </html>
 
 ### Sorting
 <html>
     <ol>
+        <li>Check if the argumetns are already in order</li>
         <li>Check the number of arguments to select the proper sorting algorithm:<br>
         <b>swap( )</b> for two elements<br>
         <b>order_3( )</b> for 3 elements<br>
@@ -56,6 +45,13 @@
         <b>radix_sort( )</b> for more than 5 elements<br></li>
         <li>Call ft_lstclear( ) for stack A and B to free all the elements</li>
     </ol>
+</html>
+
+### Radix sort
+<html>
+    <p>
+
+    </p>
 </html>
 
 ## Code Setup
@@ -98,4 +94,3 @@
     To improve this program, we could try to calculate the "cost" of each movement to determine its effectiveness. The only issue with this approach is that while it may result in fewer movements, the execution time of the program could be significantly longer. Therefore, it really depends on the application of the sort. If you are looking for something effective and fast, you might consider using the radix sort as I did. However, if your goal is to minimize the number of moves, it would be better to calculate which move is the most advantageous.
     </p>
 </html>
-

@@ -11,7 +11,7 @@
 ## Summary
 <html>
     <p>
-        <b>Push_swap</b>is a project from 42 School that aims to teach how to sort a stack of numbers using only another stack and a limited set of allowed movements. The sorting should be done with as few movements as possible. The permitted movements are:<br>
+        <b>Push_swap</b> is a project from 42 School that aims to teach how to sort a stack of numbers using only another stack and a limited set of allowed movements. The sorting should be done with as few movements as possible. The permitted movements are:<br>
         <b>Push</b> - This operation transfers the top number from one stack to the other.<br>
         <b>Swap</b> - This operation swaps the top two elements of the stack.<br>
         <b>Rotate</b> - This operation moves the top element to the end of the stack, causing all other elements to shift up by one position.<br>

@@ -5,7 +5,9 @@
 <h1 align="center">Push_swap</h1>
 </html>
 
-<img width="165" alt="Image" src="https://github.com/user-attachments/assets/c07a1bc2-30f1-47b3-be03-11bcaff3ae8b" />
+div style="text-align: center;">
+    <img src="https://github.com/user-attachments/assets/c07a1bc2-30f1-47b3-be03-11bcaff3ae8b" width="165" alt="Image" />
+</div>
 
 ## Summary
 <html>

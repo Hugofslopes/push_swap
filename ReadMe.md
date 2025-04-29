@@ -43,7 +43,7 @@
         <b>order_4( )</b> for 4 elements<br>
         <b>order_5( )</b> for 5 elements<br>
         <b>radix_sort( )</b> for more than 5 elements<br></li>
-        <li>Call ft_lstclear( ) for stack A and B to free all the elements</li>
+        <li>Call <b>ft_lstclear( )</b> for stack A and B to free all the elements</li>
     </ol>
 </html>
 

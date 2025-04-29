@@ -36,7 +36,7 @@
 ### Sorting
 <html>
     <ol>
-        <li>Check if the argumetns are already in order</li>
+        <li>Check if the argumetns are already in order <b>in_order( )</b></li>
         <li>Check the number of arguments to select the proper sorting algorithm:<br>
         <b>swap( )</b> for two elements<br>
         <b>order_3( )</b> for 3 elements<br>

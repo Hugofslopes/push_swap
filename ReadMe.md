@@ -26,11 +26,14 @@
     <ol>
         <li>Check the number of arguments (if there are fewer than two, it means that no numbers were provided).</li>
         <li>Check if there is only one argument or multiple arguments.</li>
-        <li>If there are multiple arguments, check for any errors (such as characters that are not numbers) and convert the characters to integers.</li>
-        <li>If there is only one argument containing multiple numbers, divide it into separate arguments and then convert each character to an integer.</li>
-        <li>Create a linked list and add each number in the order that it was inserted into the list.</li>
+        <li>If there are multiple arguments, check for any errors (such as characters that are not numbers) and convert the characters to integers. Call <b>char_int_array()</b></li>
+        <li>If there is only one argument containing multiple numbers, divide it into separate arguments and then convert each character to an integer.Call <b>new_split()</b></li>
+        <li>Create a linked list and add each number in the order that it was inserted into the list.Call <b>add_to_lists()</b></li>
+        <li>Create an index starting at 0 and going up to the number of elements to facilitate the sort.</li>
     </ol>
 </html>
+
+### Sorting
 
 ## Code Setup
 <html>

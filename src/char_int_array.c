@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   char_int_array.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 13:50:31 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/19 09:51:08 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:19:54 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 long	*array_errors2(long *array)
 {
@@ -52,7 +52,7 @@ long	*char_int_arrayb(char **str, long *array, int sign, size_t *i)
 				sign = -1;
 		while (str[*i][j] && str[*i][j] >= '0' && str[*i][j] <= '9')
 			array[*i] = array[*i] * 10 + (str[*i][j++]) - 48;
-		if (!(str[*i][j] >= '0' && str[*i][j] <= '9' || str[*i][j] == ' ' || \
+		if (!((str[*i][j] >= '0' && str[*i][j] <= '9' ) || str[*i][j] == ' ' || \
 		str[*i][j] == '\0'))
 			return (array_errors2(array));
 		if (sign == -1)

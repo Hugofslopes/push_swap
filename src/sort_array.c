@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:20:19 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/17 15:23:47 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:17:30 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	sort_array(long **array, size_t size, t_l **a)
 {
@@ -39,8 +39,8 @@ void	sort_array(long **array, size_t size, t_l **a)
 
 void	sort_array_put_index(long **array, size_t size, t_l **a)
 {
-	int	i;
-	t_l	*curr;
+	size_t	i;
+	t_l		*curr;
 
 	i = 0;
 	curr = *a;

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 14:42:03 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/19 09:58:47 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:17:15 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	b_not_null(t_l *top_b, t_l **new_node)
 {
@@ -26,10 +26,8 @@ void	b_not_null(t_l *top_b, t_l **new_node)
 void	pushb(t_l **a, t_l **b, t_l **new_node)
 {
 	t_l	*top_a;
-	t_l	*top_b;
 
 	top_a = *a;
-	top_b = *b;
 	if (top_a != NULL)
 	{
 		while (top_a->next != NULL)

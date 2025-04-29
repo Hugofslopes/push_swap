@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   inorder.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: hfilipe- < hfilipe-@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 09:12:21 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/06 18:01:01 by hfilipe-         ###   ########.fr       */
+/*   Created: 2024/12/06 21:11:17 by hfilipe-          #+#    #+#             */
+/*   Updated: 2025/04/29 16:49:52 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	ft_putstr(char *s)
+int	in_order(t_l **a)
 {
-	while (*s)
-		write(1, &(*s++), 1);
+	t_l	*curr;
+
+	curr = *a;
+	while (curr->next != NULL)
+	{
+		if (curr->n < curr->next->n)
+			return (0);
+		curr = curr->next;
+	}
+	return (1);
 }

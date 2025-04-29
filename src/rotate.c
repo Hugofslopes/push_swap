@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- < hfilipe-@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 18:17:16 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/17 15:14:40 by hfilipe-         ###   ########.fr       */
+/*   Created: 2024/12/06 12:10:00 by hfilipe-          #+#    #+#             */
+/*   Updated: 2025/04/29 16:50:35 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	reverse_rotate(t_l **list, char c)
+void	rotate(t_l **list, char c)
 {
 	t_l	*last;
-	t_l	*first;
+	t_l	*second_last;
 
-	first = *list;
-	last = first;
+	last = *list;
 	while (last->next != NULL)
+	{
+		second_last = last;
 		last = last->next;
-	*list = first->next;
-	last->next = first;
-	first->next = NULL;
-	first->prev = last;
-	if (*list != NULL)
-		(*list)->prev = NULL;
+	}
+	second_last->next = NULL;
+	last->next = *list;
+	last->prev = NULL;
+	(*list)->prev = last;
+	*list = last;
 	if (c == 'a')
-		ft_putstr("rra\n");
+		ft_putstr("ra\n");
 	else if (c == 'b')
-		ft_putstr("rrb\n");
+		ft_putstr("rb\n");
 }

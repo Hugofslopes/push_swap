@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   new_split.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- < hfilipe-@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 10:08:34 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/09 12:58:01 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:49:56 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 size_t	count_words(char *str, char c)
 {

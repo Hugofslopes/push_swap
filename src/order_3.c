@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   order_3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hfilipe- <hfilipe-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hfilipe- < hfilipe-@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 21:29:57 by hfilipe-          #+#    #+#             */
-/*   Updated: 2024/12/11 09:49:10 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/04/29 16:50:00 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	order_3(t_l **a)
 {

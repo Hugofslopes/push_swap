@@ -54,14 +54,14 @@
 
 <html>
     <p>
-    <b>Step 4:</b> Run tests:
+    <b>Step 4:</b> Run tests:<br>
     To check if the outputs are correct and if the stack is sorted properly, use the script below. This tool is applicable for Linux and was built by 42 itself.
     </p>
 </html>
 
     ARG="<numbers>"; ./push_swap $ARG | ./checker_linux $ARG
 
-## Improvements
+# Improvements
 <html>
     <p>
     To improve this program, we could try to calculate the "cost" of each movement to determine its effectiveness. The only issue with this approach is that while it may result in fewer movements, the execution time of the program could be significantly longer. Therefore, it really depends on the application of the sort. If you are looking for something effective and fast, you might consider using the radix sort as I did. However, if your goal is to minimize the number of moves, it would be better to calculate which move is the most advantageous.
